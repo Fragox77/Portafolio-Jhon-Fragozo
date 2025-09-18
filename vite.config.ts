@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
     return {
       // Esta es la ruta base para el despliegue en GitHub Pages.
       // Debe coincidir con el nombre de tu repositorio.
-      base: './',
+      base: '/Portafolio-Jhon-Fragozo/',
       
       plugins: [react()],
       define: {
