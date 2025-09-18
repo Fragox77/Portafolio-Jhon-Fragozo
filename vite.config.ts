@@ -1,13 +1,13 @@
-import { fileURLToPath, URL } from 'url';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
       // Esta es la ruta base para el despliegue en GitHub Pages.
       // Debe coincidir con el nombre de tu repositorio.
-      base: '/Portafolio-Jhon-Fragozo/',
+      base: './',
       
       plugins: [react()],
       define: {
@@ -16,9 +16,7 @@ export default defineConfig(({ mode }) => {
       },
       resolve: {
         alias: {
-          // FIX: __dirname is not available in an ES module context.
-          // Replaced with the standard import.meta.url to get the current directory path.
-          '@': fileURLToPath(new URL('.', import.meta.url)),
+          '@': resolve(process.cwd(), 'src')
         }
       }
     };
